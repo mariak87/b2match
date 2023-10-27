@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Pages from "./pages/Pages";
+import { BrowserRouter } from 'react-router-dom';
+import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <Header>
+          <Logo to={"/"}>Home</Logo>
+          <Logo to={"/me"}>MyPage</Logo>
+        </Header>
+        <Pages />
+      </BrowserRouter>
+    </div >
   );
 }
 
+const Logo = styled(Link)`
+  font-size: 1.5rem;
+  font-family: cursive;
+  margin: 0 1rem;
+`;
+
+const Header = styled.div`
+  padding: 4rem 0rem;
+`;
+
 export default App;
+
